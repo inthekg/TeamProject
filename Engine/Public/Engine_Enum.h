@@ -1,0 +1,285 @@
+﻿#ifndef Engine_Enum_h__
+#define Engine_Enum_h__
+
+namespace Engine
+{
+	enum class WINMODE { FULL, WIN };
+
+	enum class PROTOTYPE { GAMEOBJECT, COMPONENT };
+	//Render Ground ID. TEST는 각자 플젝에서 제거하면 제외하기 
+	enum class RENDERID { PRIORITY, SHADOW, NONBLEND, NONLIGHT, BLEND, BLEND2, BLEND_WBOIT, FORWARD, UI, TEST, DEBUG, CUBEMAP, UI_PREVIEW_BACKGROUND, REFLECTION, END };
+	
+	enum class STATE { RIGHT, UP, LOOK, POSITION, END };
+
+	enum class D3DTS { VIEW, PROJ, END };
+
+	enum class LIGHT { DIRECTIONAL, POINT, SPOT, END };
+
+	enum class MODEL { NONANIM, ANIM, END };
+
+	enum class POINT_TYPE { A, B, C, END };
+
+	enum class LINE { AB, BC, CA, END };
+
+	enum class OBJECT_STATE { ACTIVE, INACTIVE, END };
+	//RenderCommand의 타입
+	enum class RENDER_TYPE : uint32_t { BASE, STATIC, SKINNED, UI, UI_TEXT, EFFECT, DEBUG, END };
+
+	//enum class DEFERRED { DEBUG, DIRECTIONAL, POINT, COMBINED, END };
+
+	enum class DIRECTION { FRONT, BACK, RIGHT, LEFT, END };
+
+	enum class DIMB { LBUTTON, RBUTTON, WHEEL, END };
+
+	enum class DIMM { X, Y, WHEEL, END };
+
+	//material Buffer 리플렉션할때 저장할 변수의 타입 
+	enum class SHADER_VALUE_TYPE { SCALAR, COLOR, END };
+
+	enum class PATH_FILTER_TYPE { MAP, STATIC_MODEL, SKINNED_MODEL, EFFECT, END };
+
+	enum class CCT_TYPE { BOX, CAPSULE, END };
+
+	enum class ANIM_PART_TYPE { MASTER, PART, END };
+
+	enum class SPEED_TYPE { IDLE, RUN, SPRINT, END };
+
+	enum class CAMERA_MODE { FOLLOW, ACTION, FREE, CUTSCENE, END };
+	//KnockDown 사용하지않음 인덱스 값 유지하기위해 수정 금지  
+	enum class HIT_TYPE : uint8_t { Normal, Heavy, KnockBack, KnockDown, Charge, Fury, Fatal, FatalEnd, NormalUnGuard, HeavyUnGuard, End };
+
+	enum class ATTACK_STYLE : uint8_t { Thrust, Slash, End };
+
+	enum class HIT_DIR : uint8_t { Front, Back, Left, FrontLeft, Right, FrontRight, End };
+
+	enum class EASE_TYPE { LINEAR, EASE_IN, OUT_QUAT, OUT_CUBIC, OUT_EXPO, OUT_QUINT, IN_OUT_CUBIC, END };
+
+	enum class CURVE_INTERP { LINEAR, CONSTANT, CUBIC, NONE };
+	enum class CURVE_TANGENT { AUTO, USER, BREAK, NONE };
+
+	enum CHANNEL_ID
+	{
+		SOUND_MASTER,
+		SOUND_PLAYER,
+		SOUND_MONSTER,
+		SOUND_WEAPON,
+		SOUND_SFX,
+		SOUND_BGM,
+		SOUND_END
+	};
+
+	enum class FILTER_GROUP
+	{
+		PLAYER = 1 << 0,
+		MONSTER = 1 << 1,
+		WEAPON = 1 << 2,
+		OBJECT = 1 << 3,
+		GROUND = 1 << 4,
+		TRIGGER = 1 << 5,
+		MONSTEROBJECT = 1 << 6,
+		END
+	};
+
+	enum class TEXTURE_TYPE
+	{
+		BASE_COLOR,
+		MASK1,
+		MASK2,
+		NORMAL,
+		BENT_NORMAL,
+		DETAIL_NORMAL,
+		EMISSIVE,
+		CUBE_MAP,
+		END
+	};
+
+	enum class GEOMETRY_TYPE
+	{
+		BOX,
+		SPHERE,
+		CAPSULE,
+		TRIANGLE_MESH,
+		END
+	};
+
+	enum class COLLISION_TYPE
+	{
+		TRIGGER,
+		CONTACT,
+		RAYCAST,
+		SWEEP,
+		END
+	};
+
+	enum class EVENT_CATEGORY
+	{
+		COMMON,
+		MAP_OBJECT,
+		SCENE,
+		UI,
+		END
+	};
+
+	//enum class EVENT_TYPE
+	//{
+	//	START_LEVEL,
+	//	CAMERA_ACTION_BEGIN,
+	//	CAMERA_ACTION_END,
+	//	MONSTER_DEAD,
+	//	SECTOR_CHANGED,
+	//	BOSS_START,
+	//	ACTOR_DESPAWN,
+	//	REQUEST_RESPAWN,
+	//	REQUEST_CHANGE_CHAPTER,
+	//	UPDATE_RESPAWN_POINT,
+	//	LADDER,
+	//	LADDER_OPEN,
+	//	ELEVATOR_OPEN,
+	//	ELEVATOR_START,
+	//	TRAP_OPEN,
+	//	END
+	//};
+
+	enum class EVENT_TYPE
+	{
+		START_LEVEL,
+		CAMERA_ACTION_BEGIN,
+		CAMERA_ACTION_END,
+		MONSTER_DEAD,
+		SECTOR_CHANGED,
+		BOSS_START,
+		ACTOR_SPAWN,		// 추가
+		ACTOR_DESPAWN,
+		REQUEST_RESPAWN,
+		REQUEST_CHANGE_CHAPTER,
+		UPDATE_RESPAWN_POINT,
+		PLAY_CUTSCENE,
+		STOP_CUTSCENE,
+
+
+		START_CHAPTER,	// 전환 완료 후 새 시작
+		TELEPORT_BEGIN,	// 텔레포트 연출 시작
+		TELEPORT_START, // 연출 종료 후 전환 
+		UI_START,	// 보스 전투 전 대화
+		UI_END,		// 보스 전투 전 대화 끝
+		END
+	};
+
+	enum class EVENT_TYPE_MAP_OBJECT
+	{
+		STARGAZER_REPAIR,
+		STARGAZER_ACTIVATED,
+		LADDER,
+		LADDER_OPEN,
+		ELEVATOR_OPEN,
+		ELEVATOR_START,
+		TRAP_OPEN,
+		STEPPING_STONE,
+		OBJ_UI,
+		NPC_TALK_START,
+		NPC_DIALOGUE_LINE_EVENT,
+		NPC_TALK_END,
+		BOSS_CLEAR,
+		GET_ITEM,
+		OPEN_DOOR,
+		OPEN_CHEST,
+		NPC_DIALOGUE_SERVICE_REQUEST,
+		STARGAZER_UI_OPEN,
+		STARGAZER_TRAVEL_REQUEST,
+		STARGAZER_TRAVEL_EXECUTE,
+		CAGE_OPEN,
+
+		START_CUTSCENE_FESTIVAL,
+		START_CUTSCENE_HOTEL,
+		START_CUTSCENE_BRIDGE, 
+		START_CUTSCENE_RAXASIA_P1,	
+		START_CUTSCENE_RAXASIA_P2,
+		START_CUTSCENE_RAXASIA_DEAD,
+		END_CUTSCENE_RAXASIA_DEAD,
+		START_CUTSCENE_SOPHIA_DEAD,
+
+		DOOR_ACTIVATE,
+
+		END
+	};
+
+	enum class EVENT_TYPE_UI
+	{
+		EQUIPMENT_OPEN_REQUEST,
+		LEGION_ARM_CHANGE_OPEN_REQUEST,		// 리전 암 교체 UI 열기
+		GET_ITEM,
+		CONFIRMATION_OPEN_REQUEST,			// 공용 확인창 열기 요청
+		CONFIRMATION_RESULT,				// 사용자가 확인 또는 취소를 선택한 결과
+		CROSSHAIR_VISIBILITY_CHANGED,		// 플레이어 조준점 표시 상태 변경
+		PLAYER_DEAD_OPEN_REQUEST,			// 플레이어 사망 UI 재생 요청
+		END
+	};
+
+
+	// 머테리얼 -> 셰이더 라우팅용 
+	enum class SHADING_MODEL
+	{
+		DEFAULT_LIT,
+		SUBSURFACE,
+		HAIR,
+		EYE,
+		EYELASH,
+		UNLIT,
+		FUR,
+		WATER,
+		SPIDERWEB,
+		END
+	};
+
+	// 블렌드 모드 (OPAQUE/MASKED=디퍼드, TRANSLUCENT=포워드)
+	enum class BLEND_MODE
+	{
+		BLEND_OPAQUE,
+		BLEND_MASKED,
+		BLEND_TRANSLUCENT,
+		END
+	};
+
+	enum class PACKING_MODE
+	{
+		ARM,
+		ARH,
+		ARMK,
+		ASR,
+		ARD,
+		END
+	};
+
+	enum class ACTOR_TYPE
+	{
+		PLAYER,
+		MONSTER,
+		BOSS,
+		OBJECT,
+		END
+	};
+
+	enum class SPECIAL_ATTACK_TYPE
+	{
+		NONE,
+		ELECTRIC,
+		END,
+	};
+
+	enum class CURSOR_STATE
+	{
+		FREE,		//에디터용 
+		CLIP,		//창안에 가둠 
+		CENTER,		//Center 완전 잠금
+		END
+	};
+
+	enum class PHYSIC_DEBUG_MODE
+	{
+		TERRAIN = 1 << 0,
+		CHARACTER = 1 << 1,
+		ALL = TERRAIN | CHARACTER
+	};
+
+}
+#endif // Engine_Enum_h__

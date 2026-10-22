@@ -1,0 +1,826 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{4b38f350-28aa-40cc-9d6f-421f2038e794}</ProjectGuid>
+    <RootNamespace>GameCore</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>..\Bin\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>..\Bin\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;GAMECORE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;GAMECORE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;GAMECORE_EXPORTS;_WINDOWS;_USRDLL;RESOURCE_DIR=R"($(SolutionDir)GameCore\Bin\Resources)";SOLUTION_DIR=LR"($(SolutionDir))";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>../Public/;$(SolutionDir)Engine\Public\;$(SolutionDir)IMGUI\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>pch.h</ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>PhysX_64.lib;PhysXCommon_64.lib;PhysXFoundation_64.lib;PhysXExtensions_static_64.lib;PhysXCharacterKinematic_static_64.lib;PhysXPvdSDK_static_64.lib;PhysXCooking_64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)PhysX\Lib\Debug\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>cd /d $(SolutionDir)
+call UpdateGameLib_Debug.bat</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;GAMECORE_EXPORTS;_WINDOWS;_USRDLL;RESOURCE_DIR=R"($(SolutionDir)GameCore\Bin\Resources)";SOLUTION_DIR=LR"($(SolutionDir))";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>../Public/;$(SolutionDir)Engine\Public\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>pch.h</ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>PhysX_64.lib;PhysXCommon_64.lib;PhysXFoundation_64.lib;PhysXExtensions_static_64.lib;PhysXCharacterKinematic_static_64.lib;PhysXPvdSDK_static_64.lib;PhysXCooking_64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)PhysX\Lib\Release\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>cd /d $(SolutionDir)
+call UpdateGameLib_Release.bat</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Public\ActionFSM.h" />
+    <ClInclude Include="..\Public\ActionLayer.h" />
+    <ClInclude Include="..\Public\ActionState.h" />
+    <ClInclude Include="..\Public\ActorSectorManager.h" />
+    <ClInclude Include="..\Public\AimBoneChain.h" />
+    <ClInclude Include="..\Public\AimComponent.h" />
+    <ClInclude Include="..\Public\AnimDriver.h" />
+    <ClInclude Include="..\public\Boss_MadDonkey.h" />
+    <ClInclude Include="..\Public\CrosshairHUDData.h" />
+    <ClInclude Include="..\public\CrosshairHUDViewModel.h" />
+    <ClInclude Include="..\Public\BuffComponent.h" />
+    <ClInclude Include="..\public\ItemPopupViewModel.h" />
+    <ClInclude Include="..\public\MapWaterManager.h" />
+    <ClInclude Include="..\public\Monster_Attach.h" />
+    <ClInclude Include="..\public\Balistar.h" />
+    <ClInclude Include="..\Public\BaseArm.h" />
+    <ClInclude Include="..\Public\BodyPart.h" />
+    <ClInclude Include="..\public\BoltMine.h" />
+    <ClInclude Include="..\public\BoltSector.h" />
+    <ClInclude Include="..\public\BossHUDViewModel.h" />
+    <ClInclude Include="..\public\Boss_Festival.h" />
+    <ClInclude Include="..\public\Boss_Raxasia_P1.h" />
+    <ClInclude Include="..\public\Boss_Raxasia_P2.h" />
+    <ClInclude Include="..\public\Bullet.h" />
+    <ClInclude Include="..\Public\ChargeBomb.h" />
+    <ClInclude Include="..\Public\ChargeGun.h" />
+    <ClInclude Include="..\Public\ChapterMapData.h" />
+    <ClInclude Include="..\public\AIObject.h" />
+    <ClInclude Include="..\Public\ChapterMapManager.h" />
+    <ClInclude Include="..\Public\ConfirmationWindowData.h" />
+    <ClInclude Include="..\public\ConfirmationWindowViewModel.h" />
+    <ClInclude Include="..\Public\Core_Defines.h" />
+    <ClInclude Include="..\Public\Core_Enums.h" />
+    <ClInclude Include="..\Public\Core_Struct.h" />
+    <ClInclude Include="..\Public\CutScene_Actor.h" />
+    <ClInclude Include="..\Public\CutScene_Camera.h" />
+    <ClInclude Include="..\Public\CutScene_Data.h" />
+    <ClInclude Include="..\Public\Effect_ResourceCatalog.h" />
+    <ClInclude Include="..\Public\CutScene_Manager.h" />
+    <ClInclude Include="..\Public\CutScene_Prop.h" />
+    <ClInclude Include="..\Public\CutScene_Serializer.h" />
+    <ClInclude Include="..\Public\DialogueData.h" />
+    <ClInclude Include="..\public\DropItem.h" />
+    <ClInclude Include="..\public\ElectricBall.h" />
+    <ClInclude Include="..\Public\Elevator.h" />
+    <ClInclude Include="..\public\EquipmentPreviewBackground.h" />
+    <ClInclude Include="..\public\EquipmentPreviewCharacter.h" />
+    <ClInclude Include="..\public\EquipmentViewModel.h" />
+    <ClInclude Include="..\public\ESCMenuViewModel.h" />
+    <ClInclude Include="..\Public\GrappleWire.h" />
+    <ClInclude Include="..\public\GroundBall.h" />
+    <ClInclude Include="..\Public\IItemable.h" />
+    <ClInclude Include="..\public\InteractionPromptViewModel.h" />
+    <ClInclude Include="..\public\LegionArmChangeViewModel.h" />
+    <ClInclude Include="..\Public\Inventory.h" />
+    <ClInclude Include="..\Public\ItemTable.h" />
+    <ClInclude Include="..\public\LegionArmUpgradeViewModel.h" />
+    <ClInclude Include="..\Public\LegionArm_Manager.h" />
+    <ClInclude Include="..\Public\Level_Logo.h" />
+    <ClInclude Include="..\public\LoadingViewModel.h" />
+    <ClInclude Include="..\public\Missile.h" />
+    <ClInclude Include="..\Public\MonasteryBridge.h" />
+    <ClInclude Include="..\public\Monster_BigDog.h" />
+    <ClInclude Include="..\public\Monster_Butterfly.h" />
+    <ClInclude Include="..\public\Monster_Priest.h" />
+    <ClInclude Include="..\public\Monster_Zombie.h" />
+    <ClInclude Include="..\Public\NeedleLauncher.h" />
+    <ClInclude Include="..\Public\NeedleProjectile.h" />
+    <ClInclude Include="..\public\NPCDialogueRepository.h" />
+    <ClInclude Include="..\public\NPCDialogueViewModel.h" />
+    <ClInclude Include="..\Public\PartSet.h" />
+    <ClInclude Include="..\Public\PinoLamp.h" />
+    <ClInclude Include="..\Public\PressurePlate.h" />
+    <ClInclude Include="..\public\Projectile.h" />
+    <ClInclude Include="..\public\ProjectileEmitter.h" />
+    <ClInclude Include="..\Public\RollingBallTrap.h" />
+    <ClInclude Include="..\Public\RollingBallSettingData.h" />
+    <ClInclude Include="..\Public\Scissor.h" />
+    <ClInclude Include="..\Public\Equipment.h" />
+    <ClInclude Include="..\public\Facial_Test.h" />
+    <ClInclude Include="..\Public\GamePlayMapPreset.h" />
+    <ClInclude Include="..\Public\GrappleGun.h" />
+    <ClInclude Include="..\Public\GreatSword.h" />
+    <ClInclude Include="..\public\HitBox_Helper.h" />
+    <ClInclude Include="..\public\HitUtil.h" />
+    <ClInclude Include="..\Public\HotelDoor.h" />
+    <ClInclude Include="..\Public\BossArenaBarrier.h" />
+    <ClInclude Include="..\Public\Cage.h" />
+    <ClInclude Include="..\Public\ILayer.h" />
+    <ClInclude Include="..\Public\InputComponent.h" />
+    <ClInclude Include="..\Public\Ladder.h" />
+    <ClInclude Include="..\Public\LegionArm.h" />
+    <ClInclude Include="..\public\Level_Editor.h" />
+    <ClInclude Include="..\Public\Level_GamePlay.h" />
+    <ClInclude Include="..\Public\Level_Loading.h" />
+    <ClInclude Include="..\public\Level_Shader.h" />
+    <ClInclude Include="..\Public\Loader.h" />
+    <ClInclude Include="..\public\LockOnViewModel.h" />
+    <ClInclude Include="..\Public\LocoLayer.h" />
+    <ClInclude Include="..\Public\LocoState.h" />
+    <ClInclude Include="..\Public\MapActivator.h" />
+    <ClInclude Include="..\Public\MapEffectManager.h" />
+    <ClInclude Include="..\Public\MapFogManager.h" />
+    <ClInclude Include="..\Public\MapLightManager.h" />
+    <ClInclude Include="..\Public\MapGameplayObjectManager.h" />
+    <ClInclude Include="..\Public\MapGameplayObject.h" />
+    <ClInclude Include="..\Public\Item.h" />
+    <ClInclude Include="..\public\ShopViewModel.h" />
+    <ClInclude Include="..\public\StargazerTravelViewModel.h" />
+    <ClInclude Include="..\public\UIBossClearHUDController.h" />
+    <ClInclude Include="..\public\UIConfirmationWindowController.h" />
+    <ClInclude Include="..\public\UICrosshairHUDController.h" />
+    <ClInclude Include="..\public\UIEquipmentController.h" />
+    <ClInclude Include="..\public\UIItemPopupController.h" />
+    <ClInclude Include="..\public\UILegionArmChangeController.h" />
+    <ClInclude Include="..\public\UILegionArmUpgradeController.h" />
+    <ClInclude Include="..\public\UILoadingController.h" />
+    <ClInclude Include="..\public\UIPlayerDeadController.h" />
+    <ClInclude Include="..\public\UIShopController.h" />
+    <ClInclude Include="..\public\UIStargazerTravelController.h" />
+    <ClInclude Include="..\public\StargazerViewModel.h" />
+    <ClInclude Include="..\Public\TreasureChest.h" />
+    <ClInclude Include="..\Public\NPC.h" />
+    <ClInclude Include="..\Public\MapTrap.h" />
+    <ClInclude Include="..\Public\MapTriggerManager.h" />
+    <ClInclude Include="..\public\MonsterHUDViewModel.h" />
+    <ClInclude Include="..\public\Monster_Buttler.h" />
+    <ClInclude Include="..\public\Buttler_Basic.h" />
+    <ClInclude Include="..\public\Buttler_NoHead.h" />
+    <ClInclude Include="..\public\Buttler_Train.h" />
+    <ClInclude Include="..\public\Monster_Defines.h" />
+    <ClInclude Include="..\public\Monster_Elite.h" />
+    <ClInclude Include="..\public\Monster_Enums.h" />
+    <ClInclude Include="..\public\Monster_Include.h" />
+    <ClInclude Include="..\public\Monster_Melee.h" />
+    <ClInclude Include="..\public\Monster_Range.h" />
+    <ClInclude Include="..\public\Monster_Training.h" />
+    <ClInclude Include="..\Public\Movement.h" />
+    <ClInclude Include="..\Public\NavigationDebugLineBuffer.h" />
+    <ClInclude Include="..\Public\NavigationDebugRenderer.h" />
+    <ClInclude Include="..\public\Movement_AI.h" />
+    <ClInclude Include="..\Public\NavigationManager.h" />
+    <ClInclude Include="..\Public\pch.h" />
+    <ClInclude Include="..\Public\Player.h" />
+    <ClInclude Include="..\public\PlayerHUDViewModel.h" />
+    <ClInclude Include="..\Public\PlayerStateMachine.h" />
+    <ClInclude Include="..\public\SectorBall.h" />
+    <ClInclude Include="..\Public\ShakeWindowSync.h" />
+    <ClInclude Include="..\public\Shield_Raxasia.h" />
+    <ClInclude Include="..\Public\MonsterSpawnManager.h" />
+    <ClInclude Include="..\public\Shooter.h" />
+    <ClInclude Include="..\Public\SplitWeapon.h" />
+    <ClInclude Include="..\public\StatComponent_AI.h" />
+    <ClInclude Include="..\Public\SteppingStone.h" />
+    <ClInclude Include="..\public\UIBossHUDController.h" />
+    <ClInclude Include="..\public\UIESCMenuController.h" />
+    <ClInclude Include="..\public\UIFactory.h" />
+    <ClInclude Include="..\public\UIHUDViewModelBase.h" />
+    <ClInclude Include="..\public\UIInteractionPromptController.h" />
+    <ClInclude Include="..\public\UILockOnController.h" />
+    <ClInclude Include="..\Public\Stargazer.h" />
+    <ClInclude Include="..\Public\StargazerManager.h" />
+    <ClInclude Include="..\Public\StargazerTravelData.h" />
+    <ClInclude Include="..\public\UIMonsterHUDController.h" />
+    <ClInclude Include="..\public\UINPCDialogueController.h" />
+    <ClInclude Include="..\public\UIPlayerHUDController.h" />
+    <ClInclude Include="..\public\UIStargazerController.h" />
+    <ClInclude Include="..\public\UITitleController.h" />
+    <ClInclude Include="..\public\UIViewModelBase.h" />
+    <ClInclude Include="..\Public\TargetComponent.h" />
+    <ClInclude Include="..\Public\Weapon.h" />
+    <ClInclude Include="..\Public\Player_Data.h" />
+    <ClInclude Include="..\Public\SkeletalWeapon.h" />
+    <ClInclude Include="..\Public\Sky.h" />
+    <ClInclude Include="..\Public\StanceLayer.h" />
+    <ClInclude Include="..\Public\StanceState.h" />
+    <ClInclude Include="..\Public\StatComponent.h" />
+    <ClInclude Include="..\Public\State.h" />
+    <ClInclude Include="..\Public\StaticWeapon.h" />
+    <ClInclude Include="..\Public\Status.h" />
+    <ClInclude Include="..\Public\TestObject.h" />
+    <ClInclude Include="..\Public\MapWorld.h" />
+    <ClInclude Include="..\public\Weapon_Melee.h" />
+    <ClInclude Include="..\public\Weapon_Monster.h" />
+    <ClInclude Include="..\public\Weapon_Range.h" />
+    <ClInclude Include="..\public\Weapon_Raxasia.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Engine\Default\Engine.vcxproj">
+      <Project>{9d29de06-21ec-41c3-ad83-296dbb83a176}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Private\ActionFSM.cpp" />
+    <ClCompile Include="..\Private\ActionLayer.cpp" />
+    <ClCompile Include="..\Private\ActionState.cpp" />
+    <ClCompile Include="..\Private\ActorSectorManager.cpp" />
+    <ClCompile Include="..\Private\AimBoneChain.cpp" />
+    <ClCompile Include="..\private\AimComponent.cpp" />
+    <ClCompile Include="..\Private\AnimDriver.cpp" />
+    <ClCompile Include="..\private\Boss_MadDonkey.cpp" />
+    <ClCompile Include="..\private\CrosshairHUDViewModel.cpp" />
+    <ClCompile Include="..\Private\BuffComponent.cpp" />
+    <ClCompile Include="..\private\ItemPopupViewModel.cpp" />
+    <ClCompile Include="..\private\MapWaterManager.cpp" />
+    <ClCompile Include="..\private\Monster_Attach.cpp" />
+    <ClCompile Include="..\private\Balistar.cpp" />
+    <ClCompile Include="..\Private\BaseArm.cpp" />
+    <ClCompile Include="..\Private\BodyPart.cpp" />
+    <ClCompile Include="..\private\BoltMine.cpp" />
+    <ClCompile Include="..\private\BoltSector.cpp" />
+    <ClCompile Include="..\private\BossHUDViewModel.cpp" />
+    <ClCompile Include="..\private\Boss_Festival.cpp" />
+    <ClCompile Include="..\private\Boss_Raxasia_P1.cpp" />
+    <ClCompile Include="..\private\Boss_Raxasia_P2.cpp" />
+    <ClCompile Include="..\private\Bullet.cpp" />
+    <ClCompile Include="..\Private\ChargeBomb.cpp" />
+    <ClCompile Include="..\Private\ChargeGun.cpp" />
+    <ClCompile Include="..\Private\ChapterMapData.cpp" />
+    <ClCompile Include="..\private\AIObject.cpp" />
+    <ClCompile Include="..\Private\ChapterMapManager.cpp" />
+    <ClCompile Include="..\private\ConfirmationWindowViewModel.cpp" />
+    <ClCompile Include="..\Private\CutScene_Actor.cpp" />
+    <ClCompile Include="..\Private\CutScene_Camera.cpp" />
+    <ClCompile Include="..\Private\Effect_ResourceCatalog.cpp" />
+    <ClCompile Include="..\Private\CutScene_Manager.cpp" />
+    <ClCompile Include="..\Private\CutScene_Prop.cpp" />
+    <ClCompile Include="..\Private\CutScene_Serializer.cpp" />
+    <ClCompile Include="..\private\DropItem.cpp" />
+    <ClCompile Include="..\private\ElectricBall.cpp" />
+    <ClCompile Include="..\Private\Elevator.cpp" />
+    <ClCompile Include="..\private\EquipmentPreviewBackground.cpp" />
+    <ClCompile Include="..\private\EquipmentPreviewCharacter.cpp" />
+    <ClCompile Include="..\private\EquipmentViewModel.cpp" />
+    <ClCompile Include="..\private\ESCMenuViewModel.cpp" />
+    <ClCompile Include="..\Private\GrappleWire.cpp" />
+    <ClCompile Include="..\private\GroundBall.cpp" />
+    <ClCompile Include="..\private\InteractionPromptViewModel.cpp" />
+    <ClCompile Include="..\private\LegionArmChangeViewModel.cpp" />
+    <ClCompile Include="..\Private\Inventory.cpp" />
+    <ClCompile Include="..\Private\ItemTable.cpp" />
+    <ClCompile Include="..\private\LegionArmUpgradeViewModel.cpp" />
+    <ClCompile Include="..\Private\LegionArm_Manager.cpp" />
+    <ClCompile Include="..\Private\Level_Logo.cpp" />
+    <ClCompile Include="..\private\LoadingViewModel.cpp" />
+    <ClCompile Include="..\private\Missile.cpp" />
+    <ClCompile Include="..\Private\MonasteryBridge.cpp" />
+    <ClCompile Include="..\private\Monster_BigDog.cpp" />
+    <ClCompile Include="..\private\Monster_Butterfly.cpp" />
+    <ClCompile Include="..\private\Monster_Priest.cpp" />
+    <ClCompile Include="..\private\Monster_Zombie.cpp" />
+    <ClCompile Include="..\Private\NeedleLauncher.cpp" />
+    <ClCompile Include="..\Private\NeedleProjectile.cpp" />
+    <ClCompile Include="..\private\NPCDialogueRepository.cpp" />
+    <ClCompile Include="..\private\NPCDialogueViewModel.cpp" />
+    <ClCompile Include="..\Private\PartSet.cpp" />
+    <ClCompile Include="..\Private\PinoLamp.cpp" />
+    <ClCompile Include="..\Private\PressurePlate.cpp" />
+    <ClCompile Include="..\private\Projectile.cpp" />
+    <ClCompile Include="..\private\ProjectileEmitter.cpp" />
+    <ClCompile Include="..\Private\RollingBallTrap.cpp" />
+    <ClCompile Include="..\Private\Scissor.cpp" />
+    <ClCompile Include="..\Private\Equipment.cpp" />
+    <ClCompile Include="..\private\Facial_Test.cpp" />
+    <ClCompile Include="..\Private\GrappleGun.cpp" />
+    <ClCompile Include="..\Private\GreatSword.cpp" />
+    <ClCompile Include="..\private\HitBox_Helper.cpp" />
+    <ClCompile Include="..\private\HitUtil.cpp" />
+    <ClCompile Include="..\Private\HotelDoor.cpp" />
+    <ClCompile Include="..\Private\BossArenaBarrier.cpp" />
+    <ClCompile Include="..\Private\Cage.cpp" />
+    <ClCompile Include="..\Private\ILayer.cpp" />
+    <ClCompile Include="..\Private\InputComponent.cpp" />
+    <ClCompile Include="..\Private\Ladder.cpp" />
+    <ClCompile Include="..\Private\LegionArm.cpp" />
+    <ClCompile Include="..\private\Level_Editor.cpp" />
+    <ClCompile Include="..\Private\Level_GamePlay.cpp" />
+    <ClCompile Include="..\Private\Level_Loading.cpp" />
+    <ClCompile Include="..\private\Level_Shader.cpp" />
+    <ClCompile Include="..\Private\Loader.cpp" />
+    <ClCompile Include="..\private\LockOnViewModel.cpp" />
+    <ClCompile Include="..\Private\LocoLayer.cpp" />
+    <ClCompile Include="..\Private\LocoState.cpp" />
+    <ClCompile Include="..\Private\MapActivator.cpp" />
+    <ClCompile Include="..\Private\MapEffectManager.cpp" />
+    <ClCompile Include="..\Private\MapFogManager.cpp" />
+    <ClCompile Include="..\Private\MapLightManager.cpp" />
+    <ClCompile Include="..\Private\MapGameplayObjectManager.cpp" />
+    <ClCompile Include="..\Private\MapGameplayObject.cpp" />
+    <ClCompile Include="..\Private\Item.cpp" />
+    <ClCompile Include="..\private\ShopViewModel.cpp" />
+    <ClCompile Include="..\private\StargazerTravelViewModel.cpp" />
+    <ClCompile Include="..\private\UIBossClearHUDController.cpp" />
+    <ClCompile Include="..\private\UIConfirmationWindowController.cpp" />
+    <ClCompile Include="..\private\UICrosshairHUDController.cpp" />
+    <ClCompile Include="..\private\UIEquipmentController.cpp" />
+    <ClCompile Include="..\private\UIItemPopupController.cpp" />
+    <ClCompile Include="..\private\UILegionArmChangeController.cpp" />
+    <ClCompile Include="..\private\UILegionArmUpgradeController.cpp" />
+    <ClCompile Include="..\private\UILoadingController.cpp" />
+    <ClCompile Include="..\private\UIPlayerDeadController.cpp" />
+    <ClCompile Include="..\private\UIShopController.cpp" />
+    <ClCompile Include="..\private\UIStargazerTravelController.cpp" />
+    <ClCompile Include="..\private\StargazerViewModel.cpp" />
+    <ClCompile Include="..\Private\TreasureChest.cpp" />
+    <ClCompile Include="..\Private\NPC.cpp" />
+    <ClCompile Include="..\Private\MapTrap.cpp" />
+    <ClCompile Include="..\Private\MapTriggerManager.cpp" />
+    <ClCompile Include="..\private\MonsterHUDViewModel.cpp" />
+    <ClCompile Include="..\private\Monster_Buttler.cpp" />
+    <ClCompile Include="..\private\Buttler_Basic.cpp" />
+    <ClCompile Include="..\private\Buttler_NoHead.cpp" />
+    <ClCompile Include="..\private\Buttler_Train.cpp" />
+    <ClCompile Include="..\private\Monster_Elite.cpp" />
+    <ClCompile Include="..\private\Monster_Melee.cpp" />
+    <ClCompile Include="..\private\Monster_Range.cpp" />
+    <ClCompile Include="..\private\Monster_Training.cpp" />
+    <ClCompile Include="..\Private\Movement.cpp" />
+    <ClCompile Include="..\Private\NavigationDebugLineBuffer.cpp" />
+    <ClCompile Include="..\Private\NavigationDebugRenderer.cpp" />
+    <ClCompile Include="..\private\Movement_AI.cpp" />
+    <ClCompile Include="..\Private\NavigationManager.cpp" />
+    <ClCompile Include="..\Private\pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\Private\Player.cpp" />
+    <ClCompile Include="..\private\PlayerHUDViewModel.cpp" />
+    <ClCompile Include="..\Private\PlayerStateMachine.cpp" />
+    <ClCompile Include="..\private\SectorBall.cpp" />
+    <ClCompile Include="..\private\Shield_Raxasia.cpp" />
+    <ClCompile Include="..\Private\MonsterSpawnManager.cpp" />
+    <ClCompile Include="..\private\Shooter.cpp" />
+    <ClCompile Include="..\Private\SplitWeapon.cpp" />
+    <ClCompile Include="..\private\StatComponent_AI.cpp" />
+    <ClCompile Include="..\Private\SteppingStone.cpp" />
+    <ClCompile Include="..\private\UIBossHUDController.cpp" />
+    <ClCompile Include="..\private\UIESCMenuController.cpp" />
+    <ClCompile Include="..\private\UIFactory.cpp" />
+    <ClCompile Include="..\private\UIHUDViewModelBase.cpp" />
+    <ClCompile Include="..\private\UIInteractionPromptController.cpp" />
+    <ClCompile Include="..\private\UILockOnController.cpp" />
+    <ClCompile Include="..\Private\Stargazer.cpp" />
+    <ClCompile Include="..\Private\StargazerManager.cpp" />
+    <ClCompile Include="..\private\UIMonsterHUDController.cpp" />
+    <ClCompile Include="..\private\UINPCDialogueController.cpp" />
+    <ClCompile Include="..\private\UIPlayerHUDController.cpp" />
+    <ClCompile Include="..\private\UIStargazerController.cpp" />
+    <ClCompile Include="..\private\UITitleController.cpp" />
+    <ClCompile Include="..\private\UIViewModelBase.cpp" />
+    <ClCompile Include="..\private\TargetComponent.cpp" />
+    <ClCompile Include="..\Private\Weapon.cpp" />
+    <ClCompile Include="..\Private\SkeletalWeapon.cpp" />
+    <ClCompile Include="..\Private\Sky.cpp" />
+    <ClCompile Include="..\Private\StanceLayer.cpp" />
+    <ClCompile Include="..\Private\StanceState.cpp" />
+    <ClCompile Include="..\Private\StatComponent.cpp" />
+    <ClCompile Include="..\Private\State.cpp" />
+    <ClCompile Include="..\Private\StaticWeapon.cpp" />
+    <ClCompile Include="..\Private\Status.cpp" />
+    <ClCompile Include="..\Private\TestObject.cpp" />
+    <ClCompile Include="..\Private\MapWorld.cpp" />
+    <ClCompile Include="..\private\Weapon_Melee.cpp" />
+    <ClCompile Include="..\private\Weapon_Monster.cpp" />
+    <ClCompile Include="..\private\Weapon_Range.cpp" />
+    <ClCompile Include="..\private\Weapon_Raxasia.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\Bin\ShaderFiles\Compute_AnimationMeshBone.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Compute_IBL_BRDFLUT.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Compute_IBL_Irradiance.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Compute_IBL_Prefilter.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Compute_MeshVertexSkin.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Compute_ParticleEmit.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Compute_ParticleInit.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Compute_ParticleSimulate.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Compute_ParticleSort.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_Bloom.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_CSMDepth.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_Decal.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_Eye.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_Eyelash.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_Fog.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_GodRay.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_GodRayBlur.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_HairFur.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_HiZBuildCS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_LineWorld.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_MapInstanceCullCS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_MeshParticle.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_Particle.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_Combine.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_Final.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_Glass.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_Hair.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_Lighting.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_MapInstance.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_Line.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_PointDepth.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_ReflectionComposite.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_ReflectionOpaque.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_SMAA.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_SpiderWeb.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_SpotDepth.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_Skin.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_Sky.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_SSAO.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_SSR.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_Trail.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_UI.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_Unlit.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_VtxAnimMesh.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_VtxMesh.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_VtxTex.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_Water.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\Shader_WBOIT_Composite.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\Bin\ShaderFiles\SMAA.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Bin\ShaderFiles\Compute_IBL_Common.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Particle_CB.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Particle_Header.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Particle_WBOIT.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Shader_BRDF.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Shader_CSM.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Shader_Dissolve.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Shader_Emissive.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Shader_FogCommon.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Shader_FullScreen.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Shader_GBuffer.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Shader_PostGlobals.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Shader_RenderTuning.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Shader_Header.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Shader_IBL.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Shader_LightCommon.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Shader_MaterialTextures.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Shader_RimProfile.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Shader_ShadowCommon.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Shader_Point.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Shader_PostCommon.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Shader_ShadowData.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Shader_SMAADefines.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Shader_Spot.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\Bin\ShaderFiles\Shader_Skinning.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

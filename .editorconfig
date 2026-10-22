@@ -1,0 +1,11 @@
+root = true
+
+# 일반 소스: UTF-8 (BOM 포함)
+[*.{cpp,cc,cxx,c,h,hpp,hh,hxx,inl}]
+charset = utf-8-bom
+end_of_line = crlf
+
+# 셰이더: UTF-8 (BOM 없음) - BOM 붙으면 셰이더 컴파일 문제
+[*.{hlsl,hlsli}]
+charset = utf-8
+end_of_line = crlf

@@ -1,0 +1,7 @@
+diff a/Engine/Default/Engine.vcxproj b/Engine/Default/Engine.vcxproj	(rejected hunks)
+@@ -80,6 +80,7 @@
+     <ClInclude Include="..\public\GPUAnimationSystem.h" />
+     <ClInclude Include="..\Public\IPoolable.h" />
+     <ClInclude Include="..\Public\SoundManager.h" />
+     <ClInclude Include="..\Public\DebugCapsule.h" />
+     <ClInclude Include="..\Public\Effect.h" />

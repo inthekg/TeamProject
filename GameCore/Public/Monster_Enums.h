@@ -1,0 +1,53 @@
+﻿#pragma once
+namespace GameCore
+{
+	enum class NOTIFY_KEY
+	{
+		REVIVE = 0,
+		SET_DEAD,
+		CHECK_DEAD,
+		WEAPON_ON,
+		WEAPON_OFF,
+		TRAIL_ON,
+		TRAIL_OFF,
+		HEAD_IN,
+		HEAD_OUT,
+		FATAL_READY,
+		PHASE_CHANGE,
+		FIRE,
+		LAND_MINE,
+		LAND_MINESTART,
+		LAND_MINEEND,
+		LAND_SECTOR,
+		BOLT_RANGE,
+		PLAYER_GRAB,
+		PLAYER_THROW,
+		CHECK_NEARBY,
+		SHEILD_BREAK,
+		NEXTMOTION,
+		CHECKTARGET,
+		FIRE_SECTOR,
+		FIRE_GROUNDWAVE,
+		FIRE_THUNDERSTROKE,
+		FIRE_ELECTRICBALL,		
+		SWORD_THUNDER_ON,
+		SWORD_THUNDER_OFF,
+		ELEC_TRAIL_ON,
+		BODY_THUNDER_ON,
+		BODY_THUNDER_OFF,
+		RUN_TRAIL_ON,
+		RUN_TRAIL_OFF,
+		END
+	};
+
+	const static _wstring g_strStingWindow = L"CheckSting";
+	const static _wstring g_strNearByWindow = L"CheckFrontNearByTarget";
+
+	enum class PHASE
+	{
+		PHASE1 = 1,
+		PHASE2 = 2
+	};
+
+	enum class MON_DIRECTION { NONE = 0, BACK = 1, LEFT = 2, RIGHT = 3, FRONT = 4 };
+}
